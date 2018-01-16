@@ -19,7 +19,7 @@ https://documenter.getpostman.com/view/1151401/hospitaldb/7TGitkq
 ## Instalación del proyecto
 ---
 
-El proyecto require la instalación de [Node.js](https://nodejs.org/) v4+ para funcionar.
+El proyecto require la instalación de [Node.js](https://nodejs.org/) v6+ para funcionar.
 
 Instalar las dependencias y levantar el servidor.
 
