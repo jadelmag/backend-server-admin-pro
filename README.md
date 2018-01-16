@@ -31,7 +31,7 @@ $ npm install
 
 Las dependencias utilizadas para realizar este proyecto han sido las siguientes:
 
-| Plugin | Versión |
+| Dependencia | Versión |
 | ------ |  ------ |
 | body-parser | 1.18.2 |
 | express | 4.16.2 |
