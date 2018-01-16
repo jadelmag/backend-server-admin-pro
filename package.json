@@ -1,0 +1,26 @@
+{
+    "name": "backend-server",
+    "version": "1.0.0",
+    "description": "Backend Server for Angular",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Javier Delgado Magdalena",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.18.2",
+        "express": "^4.16.2",
+        "express-fileupload": "^0.3.0",
+        "google-auth-library": "^0.12.0",
+        "jsonwebtoken": "^8.1.0",
+        "mongoose": "^4.13.9",
+        "mongoose-unique-validator": "^1.0.6",
+        "serve-index": "^1.9.1"
+    },
+    "devDependencies": {
+        "nodemon": "^1.14.10"
+    }
+}
