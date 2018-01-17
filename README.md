@@ -16,6 +16,13 @@ El repositorio cuenta con la documentación necesaria donde se explica como real
 
 https://documenter.getpostman.com/view/1151401/hospitaldb/7TGitkq
 
+## Front End
+---
+
+El proyecto frontend de Angular que funciona perfectamente con este backend está en la siguiente dirección: 
+
+* [AdminPro](https://github.com/jadelmag/adminpro)
+
 ## Instalación del proyecto
 ---
 
