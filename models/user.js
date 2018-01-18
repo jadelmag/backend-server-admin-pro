@@ -17,6 +17,6 @@ var userSchema = new Schema({
     google: { type: Boolean, required: true, default: false }
 });
 
-userSchema.plugin(uniqueValidator, { message: 'Email must be unique' });
+userSchema.plugin(uniqueValidator, { message: '{PATH} must be unique' });
 
 module.exports = mongoose.model('User', userSchema);

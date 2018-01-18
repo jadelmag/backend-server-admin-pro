@@ -11,10 +11,9 @@ var User = require('../models/user');
 //=============================
 app.get('/collection/:table/:search', (req, res) => {
 
-    var regex = new RegExp(search, 'i');
-
     var search = req.params.search;
     var table = req.params.table;
+    var regex = new RegExp(search, 'i');
 
     var promise;
 
@@ -108,7 +107,7 @@ function searchUsers(tag, regex) {
 
     return new Promise((resolve, reject) => {
 
-        User.find({}, 'name email role')
+        User.find({}, 'name email role google')
             .or([{ 'name': regex }, { 'email': regex }])
             .exec((err, users) => {
                 if (err) {

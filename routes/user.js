@@ -16,7 +16,7 @@ app.get('/', (req, res, next) => {
     var from = req.query.from || 0;
     from = Number(from);
 
-    User.find({}, 'name email img role')
+    User.find({}, 'name email img role google')
         .skip(from)
         .limit(5)
         .exec(
@@ -102,8 +102,8 @@ app.put('/:id', mdAuthentication.verifyToken, (req, res) => {
         if (!user) {
             return res.status(400).json({
                 ok: false,
-                message: 'Error: User doesnt exist',
-                errors: err
+                message: 'Error: User with id ' + id + 'doesnt exist',
+                errors: { message: 'Desnt exist an user with this ID' }
             });
         }
 
@@ -119,6 +119,8 @@ app.put('/:id', mdAuthentication.verifyToken, (req, res) => {
                     errors: err
                 });
             }
+
+            userUpdated.password = ':)';
 
             res.status(200).json({
                 ok: true,
