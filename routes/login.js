@@ -14,7 +14,7 @@ const GOOGLE_CLIENT_ID = require('../config/config').GOOGLE_CLIENT_ID;
 const GOOGLE_SECRET = require('../config/config').GOOGLE_SECRET;
 
 // ===================
-// Normal
+// Login Google
 // ===================
 app.post('/google', (req, res) => {
 
@@ -67,7 +67,8 @@ app.post('/google', (req, res) => {
                             ok: true,
                             user: user,
                             token: token,
-                            id: user._id
+                            id: user._id,
+                            menu: getMenu(user.role)
                         });
                     }
                 } else {
@@ -102,7 +103,8 @@ app.post('/google', (req, res) => {
                             ok: true,
                             user: userDB,
                             token: token,
-                            id: userDB._id
+                            id: userDB._id,
+                            menu: getMenu(userDB.role)
                         });
 
                     });
@@ -155,7 +157,8 @@ app.post('/', (req, res) => {
             ok: true,
             user: userDB,
             token: token,
-            id: userDB._id
+            id: userDB._id,
+            menu: getMenu(userDB.role)
         });
 
     });
@@ -163,6 +166,36 @@ app.post('/', (req, res) => {
 
 });
 
+function getMenu(ROLE) {
 
+    var menu = [{
+            title: 'Main',
+            icon: 'mdi mdi-gauge',
+            submenu: [
+                { title: 'Dashboard', url: '/dashboard' },
+                { title: 'Profile', url: '/profile' },
+                { title: 'Progress', url: '/progress' },
+                { title: 'Promises', url: '/promises' },
+                { title: 'Rxjs', url: '/rxjs' },
+                { title: 'Graphics', url: '/graphics' }
+            ]
+        },
+        {
+            title: 'Personal',
+            icon: 'mdi mdi-folder-lock-open',
+            submenu: [
+                // { title: 'Users', url: '/users' },
+                { title: 'Doctors', url: '/doctors' },
+                { title: 'Hospitals', url: '/hospitals' }
+            ]
+        }
+    ];
+
+    if (ROLE === 'ADMIN_ROLE') {
+        menu[1].submenu.unshift({ title: 'Users', url: '/users' });
+    }
+
+    return menu;
+}
 
 module.exports = app;

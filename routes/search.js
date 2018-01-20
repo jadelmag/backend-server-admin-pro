@@ -73,7 +73,7 @@ function searchHospitals(tag, regex) {
     return new Promise((resolve, reject) => {
 
         Hospital.find({ name: regex })
-            .populate('user', 'name email')
+            .populate('user', 'name email img')
             .exec((err, hospitals) => {
                 if (err) {
                     reject('Error searching hospitals', err);
@@ -90,7 +90,7 @@ function searchDoctors(tag, regex) {
     return new Promise((resolve, reject) => {
 
         Doctor.find({ name: regex })
-            .populate('user', 'name email')
+            .populate('user', 'name email img')
             .populate('hospital')
             .exec((err, doctors) => {
                 if (err) {
@@ -107,7 +107,7 @@ function searchUsers(tag, regex) {
 
     return new Promise((resolve, reject) => {
 
-        User.find({}, 'name email role google')
+        User.find({}, 'name email role google img')
             .or([{ 'name': regex }, { 'email': regex }])
             .exec((err, users) => {
                 if (err) {
