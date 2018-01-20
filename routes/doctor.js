@@ -121,6 +121,45 @@ app.put('/:id', mdAuthentication.verifyToken, (req, res) => {
     });
 });
 
+
+// ====================
+//  Get Doctor
+// ====================
+app.get('/:id', mdAuthentication.verifyToken, (req, res) => {
+
+    var id = req.params.id;
+
+    Doctor.findById(id)
+        .populate('user', 'name email img')
+        .populate('hospital')
+        .exec((err, doctor) => {
+
+            if (err) {
+                return res.status(500).json({
+                    ok: false,
+                    message: 'Error finding doctor',
+                    errors: err
+                });
+            }
+
+            if (!doctor) {
+                return res.status(400).json({
+                    ok: false,
+                    message: 'Doctor with id ' + id + ' doesnt exist',
+                    errors: { message: ' Doesnt exist this doctor' }
+                });
+            }
+
+            return res.status(200).json({
+                ok: true,
+                doctor: doctor
+            });
+
+        });
+
+});
+
+
 // ====================
 //  Remove Doctor
 // ====================

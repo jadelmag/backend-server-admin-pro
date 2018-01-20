@@ -22,7 +22,7 @@ app.get('/collection/:table/:search', (req, res) => {
             promise = searchUsers(search, regex);
             break;
         case 'doctors':
-            promise = searchUsers(search, regex);
+            promise = searchDoctors(search, regex);
             break;
         case 'hospitals':
             promise = searchHospitals(search, regex);
