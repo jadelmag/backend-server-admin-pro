@@ -14,7 +14,6 @@ Además, es necesario tener instalado ***MongoDB*** levantado en el puerto 27017
 
 El repositorio cuenta con la documentación necesaria donde se explica como realizar las consultas mediante ***Postman***
 
-https://documenter.getpostman.com/view/1151401/hospitaldb/7TGitkq
 
 ## Front End
 ---
