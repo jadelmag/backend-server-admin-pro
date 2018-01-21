@@ -13,6 +13,21 @@ const SEED = require('../config/config').SEED;
 const GOOGLE_CLIENT_ID = require('../config/config').GOOGLE_CLIENT_ID;
 const GOOGLE_SECRET = require('../config/config').GOOGLE_SECRET;
 
+var mdAuthentication = require('../middlewares/authentication');
+
+// ===================
+// Renew Token
+// ===================
+app.get('/renewtoken', mdAuthentication.verifyToken, (req, res) => {
+
+    var token = jwt.sign({ user: req.user }, SEED, { expiresIn: 14400 });
+
+    res.status(200).json({
+        ok: true,
+        token: token
+    });
+});
+
 // ===================
 // Normal
 // ===================
