@@ -27,8 +27,9 @@ $ npm start
 ### Dependencias
 ---
 Las dependencias utilizadas para realizar este proyecto han sido las siguientes:
+
 | Dependencia |	Versión |
-| ----------- | ------- |
+| --- | --- |
 | body-parser |	1.18.2  |
 | express 	  | 4.16.2  |
 | express-fileupload | 0.3.0 |
